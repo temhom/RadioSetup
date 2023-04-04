@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e310ae58-3c00-4034-ad3b-c370d3b247ab" name="Changes" comment="PreProjectPush">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/RadioTuner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/RadioTunerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/RadioTuner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/RadioTuner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/RadioTunerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/RadioTunerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +40,15 @@
     "last_directory_selection": "C:/Users/temho/IdeaProjects/RadioSetup/src/test/java"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.RadioTunerTest.shouldTurnForwardStation">
-    <configuration name="RadioTunerTest.shouldSetStation (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn test" />
+      <command value="mvn clean test" />
+      <command value="mvn clean verify" />
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.RadioTunerTest.shouldReduceAndStayAtLowBorderIfMin">
+    <configuration name="RadioTunerTest.shouldIncreaseVolume" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RadioSetup" />
       <extension name="coverage">
         <pattern>
@@ -51,23 +58,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example" />
       <option name="MAIN_CLASS_NAME" value="org.example.RadioTunerTest" />
-      <option name="METHOD_NAME" value="shouldSetStation" />
+      <option name="METHOD_NAME" value="shouldIncreaseVolume" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RadioTunerTest.shouldSetToMaxStation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="RadioSetup" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RadioTunerTest" />
-      <option name="METHOD_NAME" value="shouldSetToMaxStation" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RadioTunerTest.shouldSetToMinStation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RadioTunerTest.shouldReduceAndStayAtLowBorderIfMin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RadioSetup" />
       <extension name="coverage">
         <pattern>
@@ -77,13 +74,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example" />
       <option name="MAIN_CLASS_NAME" value="org.example.RadioTunerTest" />
-      <option name="METHOD_NAME" value="shouldSetToMinStation" />
+      <option name="METHOD_NAME" value="shouldReduceAndStayAtLowBorderIfMin" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RadioTunerTest.shouldTurnBackStation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RadioTunerTest.shouldReduceVolume" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RadioSetup" />
       <extension name="coverage">
         <pattern>
@@ -93,13 +90,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example" />
       <option name="MAIN_CLASS_NAME" value="org.example.RadioTunerTest" />
-      <option name="METHOD_NAME" value="shouldTurnBackStation" />
+      <option name="METHOD_NAME" value="shouldReduceVolume" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RadioTunerTest.shouldTurnForwardStation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RadioTunerTest.shouldStayAtHighBorderIfMax" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RadioSetup" />
       <extension name="coverage">
         <pattern>
@@ -109,7 +106,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example" />
       <option name="MAIN_CLASS_NAME" value="org.example.RadioTunerTest" />
-      <option name="METHOD_NAME" value="shouldTurnForwardStation" />
+      <option name="METHOD_NAME" value="shouldStayAtHighBorderIfMax" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RadioTunerTest.shouldTurnBackStationToNineIfMin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RadioSetup" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.RadioTunerTest" />
+      <option name="METHOD_NAME" value="shouldTurnBackStationToNineIfMin" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -117,11 +130,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RadioTunerTest.shouldTurnForwardStation" />
-        <item itemvalue="JUnit.RadioTunerTest.shouldTurnBackStation" />
-        <item itemvalue="JUnit.RadioTunerTest.shouldSetStation (1)" />
-        <item itemvalue="JUnit.RadioTunerTest.shouldSetToMinStation" />
-        <item itemvalue="JUnit.RadioTunerTest.shouldSetToMaxStation" />
+        <item itemvalue="JUnit.RadioTunerTest.shouldReduceAndStayAtLowBorderIfMin" />
+        <item itemvalue="JUnit.RadioTunerTest.shouldStayAtHighBorderIfMax" />
+        <item itemvalue="JUnit.RadioTunerTest.shouldReduceVolume" />
+        <item itemvalue="JUnit.RadioTunerTest.shouldIncreaseVolume" />
+        <item itemvalue="JUnit.RadioTunerTest.shouldTurnBackStationToNineIfMin" />
       </list>
     </recent_temporary>
   </component>
@@ -141,7 +154,28 @@
       <option name="project" value="LOCAL" />
       <updated>1680360052632</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="PreProjectPush">
+      <created>1680558675170</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680558675170</updated>
+    </task>
+    <task id="LOCAL-00003" summary="PreProjectPush">
+      <created>1680558918442</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680558918442</updated>
+    </task>
+    <task id="LOCAL-00004" summary="PreProjectPush">
+      <created>1680562273844</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1680562273844</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
