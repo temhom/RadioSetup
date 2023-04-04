@@ -40,10 +40,22 @@ public class RadioTunerTest {
     @Test
     public void shouldTurnForwardStation() {
         RadioTuner radio = new RadioTuner();
-        radio.currentStation = 3;
+        radio.currentStation = 1;
         radio.turnForwardStation();
 
-        int expected = 4;
+        int expected = 2;
+        int actual = radio.currentStation;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldTurnForwardStationToZeroIfMax() {
+        RadioTuner radio = new RadioTuner();
+        radio.currentStation = 9;
+        radio.turnForwardStation();
+
+        int expected = 0;
         int actual = radio.currentStation;
 
         Assertions.assertEquals(expected, actual);
@@ -57,6 +69,101 @@ public class RadioTunerTest {
 
         int expected = 8;
         int actual = radio.currentStation;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldTurnBackStationToNineIfMin() {
+        RadioTuner radio = new RadioTuner();
+        radio.currentStation = 0;
+        radio.turnBackStation();
+
+        int expected = 9;
+        int actual = radio.currentStation;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    // TEST OF VOLUME // TEST OF VOLUME // TEST OF VOLUME //
+
+    @Test
+    public void shouldSetVolume() {
+        RadioTuner radio = new RadioTuner();
+        radio.currentVolume = 8;
+
+        int expected = 8;
+        int actual = radio.currentVolume;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetMaxVolume() {
+        RadioTuner radio = new RadioTuner();
+        radio.setToMaxVolume();
+
+        int expected = 10;
+        int actual = radio.currentVolume;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetMinVolume() {
+        RadioTuner radio = new RadioTuner();
+        radio.setToMinVolume();
+
+        int expected = 0;
+        int actual = radio.currentVolume;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldIncreaseVolume() {
+        RadioTuner radio = new RadioTuner();
+        radio.currentVolume = 7;
+        radio.increaseVolume();
+
+        int expected = 8;
+        int actual = radio.currentVolume;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldIncreaseAndStayAtHighBorderIfMax() {
+        RadioTuner radio = new RadioTuner();
+        radio.currentVolume = 10;
+        radio.increaseVolume();
+
+        int expected = 10;
+        int actual = radio.currentVolume;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldReduceVolume() {
+        RadioTuner radio = new RadioTuner();
+        radio.currentVolume = 5;
+        radio.reduceVolume();
+
+        int expected = 4;
+        int actual = radio.currentVolume;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldReduceAndStayAtLowBorderIfMin() {
+        RadioTuner radio = new RadioTuner();
+        radio.currentVolume = 0;
+        radio.reduceVolume();
+
+        int expected = 0;
+        int actual = radio.currentVolume;
 
         Assertions.assertEquals(expected, actual);
     }
