@@ -2,7 +2,38 @@ package org.example;
 
 public class RadioTuner {
 
-    public int currentStation;
+    private int currentStation;
+    private int currentVolume;
+
+    public int getCurrentStation() {
+        return currentStation;
+    }
+
+    public void setCurrentStation(int newCurrentStation) {
+        if (newCurrentStation < 0) {
+            return;
+        }
+        if (newCurrentStation > 9) {
+            return;
+        }
+        currentStation = newCurrentStation;
+    }
+
+    public void turnForwardStationNext() {
+        if (currentStation < 9) {
+            currentStation = currentStation + 1;
+        } else {
+            currentStation = 0;
+        }
+    }
+
+    public void turnBackStationPrev() {
+        if (currentStation > 0) {
+            currentStation = currentStation - 1;
+        } else {
+            currentStation = 9;
+        }
+    }
 
     public void setToMaxStation() {
         currentStation = 9;
@@ -12,33 +43,23 @@ public class RadioTuner {
         currentStation = 0;
     }
 
-    public void turnForwardStation() {
-        if (currentStation < 9) {
-            currentStation = currentStation + 1;
-        } else {
-            currentStation = 0;
-        }
-    }
-
-    public void turnBackStation() {
-        if (currentStation > 0) {
-            currentStation = currentStation - 1;
-        } else {
-            currentStation = 9;
-        }
-    }
 
     // VOLUME // VOLUME// VOLUME// VOLUME// VOLUME// VOLUME// VOLUME// VOLUME
 
-    public int currentVolume;
-
-    public void setToMaxVolume() {
-        currentVolume = 10;
+    public int getCurrentVolume() {
+        return currentVolume;
     }
 
-    public void setToMinVolume() {
-        currentVolume = 0;
+    public void setCurrentVolume(int newCurrentVolume) {
+        if (newCurrentVolume < 0) {
+            return;
+        }
+        if (newCurrentVolume > 10) {
+            return;
+        }
+        currentVolume = newCurrentVolume;
     }
+
 
     public void increaseVolume() {
         if (currentVolume < 10) {
@@ -55,5 +76,13 @@ public class RadioTuner {
             currentVolume = 0;
         }
 
+    }
+
+    public void setToMaxVolume() {
+        currentVolume = 10;
+    }
+
+    public void setToMinVolume() {
+        currentVolume = 0;
     }
 }
