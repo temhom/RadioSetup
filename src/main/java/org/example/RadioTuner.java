@@ -5,6 +5,17 @@ public class RadioTuner {
     private int currentStation;
     private int currentVolume;
 
+    private int maximalStation;
+
+    public RadioTuner() {
+        maximalStation = 9;
+    }
+
+    public RadioTuner(int StationsQuantity) {
+
+        maximalStation = StationsQuantity - 1;
+    }
+
     public int getCurrentStation() {
         return currentStation;
     }
@@ -13,14 +24,14 @@ public class RadioTuner {
         if (newCurrentStation < 0) {
             return;
         }
-        if (newCurrentStation > 9) {
+        if (newCurrentStation > maximalStation) {
             return;
         }
         currentStation = newCurrentStation;
     }
 
     public void turnForwardStationNext() {
-        if (currentStation < 9) {
+        if (currentStation < maximalStation) {
             currentStation = currentStation + 1;
         } else {
             currentStation = 0;
@@ -31,12 +42,12 @@ public class RadioTuner {
         if (currentStation > 0) {
             currentStation = currentStation - 1;
         } else {
-            currentStation = 9;
+            currentStation = maximalStation;
         }
     }
 
     public void setToMaxStation() {
-        currentStation = 9;
+        currentStation = maximalStation;
     }
 
     public void setToMinStation() {
@@ -54,7 +65,7 @@ public class RadioTuner {
         if (newCurrentVolume < 0) {
             return;
         }
-        if (newCurrentVolume > 10) {
+        if (newCurrentVolume > 100) {
             return;
         }
         currentVolume = newCurrentVolume;
@@ -62,10 +73,10 @@ public class RadioTuner {
 
 
     public void increaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
         } else {
-            currentVolume = 10;
+            currentVolume = 100;
         }
     }
 
@@ -79,10 +90,12 @@ public class RadioTuner {
     }
 
     public void setToMaxVolume() {
-        currentVolume = 10;
+        currentVolume = 100;
     }
 
     public void setToMinVolume() {
         currentVolume = 0;
     }
 }
+
+//Вроде так!
