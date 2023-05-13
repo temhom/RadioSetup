@@ -4,21 +4,35 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTunerTest {
+    RadioTuner radio = new RadioTuner();
+
+    RadioTuner radioFree = new RadioTuner(200);
 
     @Test
     public void shouldSetStation() {
-        RadioTuner radio = new RadioTuner();
-        radio.setCurrentStation(5);
 
-        int expected = 5;
+        radio.setCurrentStation(9);
+
+        int expected = 9;
         int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
+    public void shouldSetStationFree() {
+
+        radioFree.setCurrentStation(150);
+
+        int expected = 150;
+        int actual = radioFree.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldSetStationNearLow() {
-        RadioTuner radio = new RadioTuner();
+
         radio.setCurrentStation(1);
 
         int expected = 1;
@@ -28,8 +42,19 @@ public class RadioTunerTest {
     }
 
     @Test
+    public void shouldSetStationNearLowFree() {
+
+        radioFree.setCurrentStation(1);
+
+        int expected = 1;
+        int actual = radioFree.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldSetStationNearHigh() {
-        RadioTuner radio = new RadioTuner();
+
         radio.setCurrentStation(8);
 
         int expected = 8;
@@ -39,8 +64,19 @@ public class RadioTunerTest {
     }
 
     @Test
+    public void shouldSetStationNearHighFree() {
+
+        radioFree.setCurrentStation(198);
+
+        int expected = 198;
+        int actual = radioFree.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldSetMaxStation() {
-        RadioTuner radio = new RadioTuner();
+
         radio.setToMaxStation();
 
         int expected = 9;
@@ -50,8 +86,19 @@ public class RadioTunerTest {
     }
 
     @Test
+    public void shouldSetMaxStationFree() {
+
+        radioFree.setToMaxStation();
+
+        int expected = 199;
+        int actual = radioFree.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldSetMinStation() {
-        RadioTuner radio = new RadioTuner();
+
         radio.setToMinStation();
 
         int expected = 0;
@@ -61,8 +108,19 @@ public class RadioTunerTest {
     }
 
     @Test
+    public void shouldSetMinStationFree() {
+
+        radioFree.setToMinStation();
+
+        int expected = 0;
+        int actual = radioFree.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldNotSetUnderMinStation() {
-        RadioTuner radio = new RadioTuner();
+
         radio.setCurrentStation(-1);
 
         int expected = 0;
@@ -72,8 +130,19 @@ public class RadioTunerTest {
     }
 
     @Test
+    public void shouldNotSetUnderMinStationFree() {
+
+        radioFree.setCurrentStation(-1);
+
+        int expected = 0;
+        int actual = radioFree.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldNotSetAboveMaxStation() {
-        RadioTuner radio = new RadioTuner();
+
         radio.setCurrentStation(10);
 
         int expected = 0;
@@ -83,8 +152,19 @@ public class RadioTunerTest {
     }
 
     @Test
+    public void shouldNotSetAboveMaxStationFree() {
+
+        radioFree.setCurrentStation(222);
+
+        int expected = 0;
+        int actual = radioFree.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldTurnForwardStationNext() {
-        RadioTuner radio = new RadioTuner();
+
         radio.setCurrentStation(5);
         radio.turnForwardStationNext();
 
@@ -95,8 +175,20 @@ public class RadioTunerTest {
     }
 
     @Test
+    public void shouldTurnForwardStationNextFree() {
+
+        radioFree.setCurrentStation(55);
+        radioFree.turnForwardStationNext();
+
+        int expected = 56;
+        int actual = radioFree.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldTurnForwardStationNextNearHigh() {
-        RadioTuner radio = new RadioTuner();
+
         radio.setCurrentStation(8);
         radio.turnForwardStationNext();
 
@@ -107,8 +199,20 @@ public class RadioTunerTest {
     }
 
     @Test
+    public void shouldTurnForwardStationNextNearHighFree() {
+
+        radioFree.setCurrentStation(198);
+        radioFree.turnForwardStationNext();
+
+        int expected = 199;
+        int actual = radioFree.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldTurnForwardStationNextNearLow() {
-        RadioTuner radio = new RadioTuner();
+
         radio.setCurrentStation(0);
         radio.turnForwardStationNext();
 
@@ -119,8 +223,20 @@ public class RadioTunerTest {
     }
 
     @Test
+    public void shouldTurnForwardStationNextNearLowFree() {
+
+        radioFree.setCurrentStation(0);
+        radioFree.turnForwardStationNext();
+
+        int expected = 1;
+        int actual = radioFree.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldTurnForwardStationNextFromMax() {
-        RadioTuner radio = new RadioTuner();
+
         radio.setCurrentStation(9);
         radio.turnForwardStationNext();
 
@@ -131,8 +247,20 @@ public class RadioTunerTest {
     }
 
     @Test
+    public void shouldTurnForwardStationNextFromMaxFree() {
+
+        radioFree.setCurrentStation(199);
+        radioFree.turnForwardStationNext();
+
+        int expected = 0;
+        int actual = radioFree.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldTurnBackStationPrev() {
-        RadioTuner radio = new RadioTuner();
+
         radio.setCurrentStation(5);
         radio.turnBackStationPrev();
 
@@ -143,8 +271,20 @@ public class RadioTunerTest {
     }
 
     @Test
+    public void shouldTurnBackStationPrevFree() {
+
+        radioFree.setCurrentStation(99);
+        radioFree.turnBackStationPrev();
+
+        int expected = 98;
+        int actual = radioFree.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldTurnBackStationPrevNearHigh() {
-        RadioTuner radio = new RadioTuner();
+
         radio.setCurrentStation(9);
         radio.turnBackStationPrev();
 
@@ -155,8 +295,20 @@ public class RadioTunerTest {
     }
 
     @Test
+    public void shouldTurnBackStationPrevNearHighFree() {
+
+        radioFree.setCurrentStation(198);
+        radioFree.turnBackStationPrev();
+
+        int expected = 197;
+        int actual = radioFree.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldTurnBackStationPrevNearLow() {
-        RadioTuner radio = new RadioTuner();
+
         radio.setCurrentStation(1);
         radio.turnBackStationPrev();
 
@@ -167,8 +319,20 @@ public class RadioTunerTest {
     }
 
     @Test
+    public void shouldTurnBackStationPrevNearLowFree() {
+
+        radioFree.setCurrentStation(1);
+        radioFree.turnBackStationPrev();
+
+        int expected = 0;
+        int actual = radioFree.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldTurnBackStationFromMin() {
-        RadioTuner radio = new RadioTuner();
+
         radio.setCurrentStation(0);
         radio.turnBackStationPrev();
 
@@ -178,14 +342,26 @@ public class RadioTunerTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    public void shouldTurnBackStationFromMinFree() {
+
+        radioFree.setCurrentStation(0);
+        radioFree.turnBackStationPrev();
+
+        int expected = 199;
+        int actual = radioFree.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
     // TEST OF VOLUME // TEST OF VOLUME // TEST OF VOLUME //
 
     @Test
     public void shouldSetVolume() {
-        RadioTuner radio = new RadioTuner();
-        radio.setCurrentVolume(5);
 
-        int expected = 5;
+        radio.setCurrentVolume(55);
+
+        int expected = 55;
         int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -193,10 +369,10 @@ public class RadioTunerTest {
 
     @Test
     public void shouldSetVolumeNearHigh() {
-        RadioTuner radio = new RadioTuner();
-        radio.setCurrentVolume(9);
 
-        int expected = 9;
+        radio.setCurrentVolume(99);
+
+        int expected = 99;
         int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -204,7 +380,7 @@ public class RadioTunerTest {
 
     @Test
     public void shouldSetVolumeNearLow() {
-        RadioTuner radio = new RadioTuner();
+
         radio.setCurrentVolume(1);
 
         int expected = 1;
@@ -215,10 +391,10 @@ public class RadioTunerTest {
 
     @Test
     public void shouldSetMaxVolume() {
-        RadioTuner radio = new RadioTuner();
+
         radio.setToMaxVolume();
 
-        int expected = 10;
+        int expected = 100;
         int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -226,7 +402,7 @@ public class RadioTunerTest {
 
     @Test
     public void shouldSetMinVolume() {
-        RadioTuner radio = new RadioTuner();
+
         radio.setToMinVolume();
 
         int expected = 0;
@@ -237,7 +413,7 @@ public class RadioTunerTest {
 
     @Test
     public void shouldNotSetUnderMinVolume() {
-        RadioTuner radio = new RadioTuner();
+
         radio.setCurrentVolume(-1);
 
         int expected = 0;
@@ -248,8 +424,8 @@ public class RadioTunerTest {
 
     @Test
     public void shouldNotSetAboveMaxVolume() {
-        RadioTuner radio = new RadioTuner();
-        radio.setCurrentVolume(11);
+
+        radio.setCurrentVolume(101);
 
         int expected = 0;
         int actual = radio.getCurrentVolume();
@@ -259,11 +435,11 @@ public class RadioTunerTest {
 
     @Test
     public void shouldIncreaseVolume() {
-        RadioTuner radio = new RadioTuner();
-        radio.setCurrentVolume(5);
+
+        radio.setCurrentVolume(80);
         radio.increaseVolume();
 
-        int expected = 6;
+        int expected = 81;
         int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -271,11 +447,11 @@ public class RadioTunerTest {
 
     @Test
     public void shouldIncreaseVolumeNearHigh() {
-        RadioTuner radio = new RadioTuner();
-        radio.setCurrentVolume(9);
+
+        radio.setCurrentVolume(99);
         radio.increaseVolume();
 
-        int expected = 10;
+        int expected = 100;
         int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -283,7 +459,7 @@ public class RadioTunerTest {
 
     @Test
     public void shouldIncreaseVolumeNearLow() {
-        RadioTuner radio = new RadioTuner();
+
         radio.setCurrentVolume(0);
         radio.increaseVolume();
 
@@ -295,11 +471,11 @@ public class RadioTunerTest {
 
     @Test
     public void shouldIncreaseAndStayAtHighBorderIfMax() {
-        RadioTuner radio = new RadioTuner();
-        radio.setCurrentVolume(10);
+
+        radio.setCurrentVolume(100);
         radio.increaseVolume();
 
-        int expected = 10;
+        int expected = 100;
         int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -307,11 +483,11 @@ public class RadioTunerTest {
 
     @Test
     public void shouldReduceVolume() {
-        RadioTuner radio = new RadioTuner();
-        radio.setCurrentVolume(5);
+
+        radio.setCurrentVolume(55);
         radio.reduceVolume();
 
-        int expected = 4;
+        int expected = 54;
         int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -319,11 +495,11 @@ public class RadioTunerTest {
 
     @Test
     public void shouldReduceVolumeNearHigh() {
-        RadioTuner radio = new RadioTuner();
-        radio.setCurrentVolume(10);
+
+        radio.setCurrentVolume(100);
         radio.reduceVolume();
 
-        int expected = 9;
+        int expected = 99;
         int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -331,7 +507,7 @@ public class RadioTunerTest {
 
     @Test
     public void shouldReduceVolumeNearLow() {
-        RadioTuner radio = new RadioTuner();
+
         radio.setCurrentVolume(1);
         radio.reduceVolume();
 
@@ -343,7 +519,7 @@ public class RadioTunerTest {
 
     @Test
     public void shouldReduceAndStayAtLowBorderIfMin() {
-        RadioTuner radio = new RadioTuner();
+
         radio.setCurrentVolume(0);
         radio.reduceVolume();
 
@@ -353,3 +529,11 @@ public class RadioTunerTest {
         Assertions.assertEquals(expected, actual);
     }
 }
+
+// New Test For RadioTuner Quantity
+// После отпуска. Логика вроде готова (на заданное число станций (10) и произвольное (стаавлю сам, например, 200).
+// Надо проверить эту логику через два блока уже готовых, текущих тестов (возможно хватит только их, или допилить)
+// Если при: 10 станциях + произвольных станциях (устанавливаю в тестах в круглых скобках) + макс.звуке 100 всё прошло (по бранч-покрытию тоже)
+// Готово!
+// Делаю пуш этой ветки Flexible в гит. Потом делаю пул реквест и делюсь им в ДЗ!
+
